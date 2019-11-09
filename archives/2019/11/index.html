@@ -6,21 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://jack-zdl.github.io">
-  <title>一周一个中间件-hbase | Jack-zdl&#39;s Blog</title>
+  <title>Archives: 2019/11 | Jack-zdl&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 hbase是大数据的生态的一部分，是高可靠性、高性能、列存储、可伸缩、实时读写的数据库系统。介于nosql和RDBMS之间。主要存储非结构化和半结构化的松散数据。   海量数据存储快速随机访问大量写操作的应用s  背景 我们公司现在需要一套监控系统，并且需要存储一系列的用户访问数据，这些数据很松散，现在看起来无关紧要的数据但是确实潜在的用户行为数据。之后会帮助我们分心用户行为，为我们提供个性">
-<meta name="keywords" content="中间件,数据库,大数据">
-<meta property="og:type" content="article">
-<meta property="og:title" content="一周一个中间件-hbase">
-<meta property="og:url" content="https://jack-zdl.github.io/2019/09/22/一周一个中间件-hbase/index.html">
+  <meta name="description" content="走得最远的人，经常是那些愿意去做，并愿意去冒险的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jack-zdl&#39;s Blog">
+<meta property="og:url" content="https://jack-zdl.github.io/archives/2019/11/index.html">
 <meta property="og:site_name" content="Jack-zdl&#39;s Blog">
-<meta property="og:description" content="前言 hbase是大数据的生态的一部分，是高可靠性、高性能、列存储、可伸缩、实时读写的数据库系统。介于nosql和RDBMS之间。主要存储非结构化和半结构化的松散数据。   海量数据存储快速随机访问大量写操作的应用s  背景 我们公司现在需要一套监控系统，并且需要存储一系列的用户访问数据，这些数据很松散，现在看起来无关紧要的数据但是确实潜在的用户行为数据。之后会帮助我们分心用户行为，为我们提供个性">
-<meta property="og:image" content="http://output-mingbo.oss-cn-beijing.aliyuncs.com/imgs/15692828428763.png">
-<meta property="og:updated_time" content="2019-10-02T15:43:59.310Z">
+<meta property="og:description" content="走得最远的人，经常是那些愿意去做，并愿意去冒险的人">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一周一个中间件-hbase">
-<meta name="twitter:description" content="前言 hbase是大数据的生态的一部分，是高可靠性、高性能、列存储、可伸缩、实时读写的数据库系统。介于nosql和RDBMS之间。主要存储非结构化和半结构化的松散数据。   海量数据存储快速随机访问大量写操作的应用s  背景 我们公司现在需要一套监控系统，并且需要存储一系列的用户访问数据，这些数据很松散，现在看起来无关紧要的数据但是确实潜在的用户行为数据。之后会帮助我们分心用户行为，为我们提供个性">
-<meta name="twitter:image" content="http://output-mingbo.oss-cn-beijing.aliyuncs.com/imgs/15692828428763.png">
+<meta name="twitter:title" content="Jack-zdl&#39;s Blog">
+<meta name="twitter:description" content="走得最远的人，经常是那些愿意去做，并愿意去冒险的人">
   
     <link rel="alternative" href="/atom.xml" title="Jack-zdl&#39;s Blog" type="application/atom+xml">
   
@@ -160,344 +156,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-一周一个中间件-hbase" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      一周一个中间件-hbase
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/11/07/hello-world/" class="archive-article-date">
+  	<time datetime="2019-11-07T02:44:08.221Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/11/07/hello-world/">Hello World</a>
     </h1>
   
 
-        
-        <a href="/2019/09/22/一周一个中间件-hbase/" class="archive-article-date">
-  	<time datetime="2019-09-22T01:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
-</a>
-        
-      </header>
-    
-	<!-- 目录内容 -->
+        <div class="article-info info-on-right">
+          
+          
 
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-    <div id="toc-article" class="toc-article">
-        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-        <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识准备"><span class="toc-number">3.</span> <span class="toc-text">知识准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">4.</span> <span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">5.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hbase原理"><span class="toc-number">6.</span> <span class="toc-text">hbase原理</span></a></li></ol>
-         </div>
-   <script type="text/javascript">
-    function showToc(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:block");
-        show_toc_btn.setAttribute("style","display:none");
-        };
-    function showBtn(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:none");
-        show_toc_btn.setAttribute("style","display:block");
-        };
-   </script>
-      
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>hbase是大数据的生态的一部分，是高可靠性、高性能、列存储、可伸缩、实时读写的数据库系统。介于nosql和RDBMS之间。主要存储非结构化和半结构化的松散数据。</p>
-</blockquote>
-<blockquote>
-<p>海量数据存储<br>快速随机访问<br>大量写操作的应用s</p>
-</blockquote>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
-<p>我们公司现在需要一套监控系统，并且需要存储一系列的用户访问数据，这些数据很松散，现在看起来无关紧要的数据但是确实潜在的用户行为数据。之后会帮助我们分心用户行为，为我们提供个性化数据作为依据。<br>在综合现在主流的监控系统，cat，pinpoint，zikpin，SkyWalking等监控系统。我们选择了pinpoint这个基于字节码注入的调用链分析。所消耗的性能低，无代码侵入性。但是搭建pinpoint时，需要使用hbase作为存储数据的数据库。</p>
-</blockquote>
-<h2 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h2><ul>
-<li>region</li>
-</ul>
-<blockquote>
-<p>RegionServer.理解为数据节点，存储数据的<br>region服务器的内存主要服务于内部数据结构。你需要64位操作系统和使用大于4G的内存空间。</p>
-</blockquote>
-<ul>
-<li>架构图</li>
-</ul>
-<p><img src="http://output-mingbo.oss-cn-beijing.aliyuncs.com/imgs/15692828428763.png" alt="Image text"></p>
-<ul>
-<li>HMater</li>
-</ul>
-<blockquote>
-<p>HMaster是Master Server的实现，负责监控集群中的RegionServer实例，同时是所有metadata改变的接口，在集群中，通常运行在NameNode上面。master机器不需要大存储空间，不需要挂载过多的磁盘。由于master的重要性大于slalve。可以通过冗余提升硬件可用率。<br>master机器要运行NameNode,SecondaryNameNode,JobTRacker和HBase Master.800TB数据推荐24G内存。</p>
-</blockquote>
-<ul>
-<li>slave</li>
-</ul>
-<blockquote>
-<p>HBase的RegionServer.slave机器要使用DataNode,TaskTracker和HBase RegionServer.800TB数据推荐24G内存以上配置。</p>
-</blockquote>
-<ul>
-<li>hbase使用的文件系统</li>
-</ul>
-<blockquote>
-<p>本地模式： hbase可以不使用HDFS或者其他集群。使用FileSystem类连接到文件系统实现。Hadoop客户端加载并使用hadoop提供ChecksumFileSystem类直接操作本地磁盘路径来存储所有的路径。<br>参数 file:///<path></path><br>HDFS模式： 是默认的文件系统，Hbase选择HDFS作为文件系统。<br>hdfs://<namenode>:<port>/<path></path></port></namenode></p>
-</blockquote>
-<ul>
-<li>hbase集群</li>
-</ul>
-<blockquote>
-<p>单机模式<br>分布式模式<br>    hbase的主从架构，hmaster作为主节点，hregionServer作为从节点。</p>
-</blockquote>
-<pre><code>宕机分为 HMaster 宕机和 HRegisoner 宕机，如果是HRegisoner 宕机， HMaster 会将其所管理的 region 重新分布到其他活动的
- RegionServer 上.
-
-由于数据和日志都持久在 HDFS中，该操作不会导致数据丢失。所以数据的一致性和安全性是有保障的。
-
-如果是 HMaster 宕机， HMaster 没有单点问题.
-
-HBase 中可以启动多个 HMaster，通过Zookeeper 的 Master Election 机制保证总有一个 Master 运行。
-
-即 ZooKeeper 会保证总会有一个 HMaster 在对外提供服务
-</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>HBase权威指南(中文版)<a href="https://pan.baidu.com/s/1EGhMdGeE4GcD8VpEcKQGkw" target="_blank" rel="noopener">提取码: nisk</a></p>
-<p>HBase安装包 hbase-2.2.1-bin.tar <a href="https://pan.baidu.com/s/1Es3Rg0owaWdklLJZJA39Ng" target="_blank" rel="noopener">提取码：utts</a></p>
-<p>如果无法下载请联系我 <a href="mailto:zhangdelei000@gmail.com" target="_blank" rel="noopener">zhangdelei000@gmail.com</a> ，或者评论下留下邮箱百度云账号，我会私发给您。<br><a id="more"></a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
-<p>单机安装和分布式安装。<br>在linux服务器中指定位置 wget <a href="http://mirrors.tuna.tsinghua.edu.cn/apache/hbase/2.2.1/hbase-2.2.1-src.tar.gz" target="_blank" rel="noopener">http://mirrors.tuna.tsinghua.edu.cn/apache/hbase/2.2.1/hbase-2.2.1-src.tar.gz</a> 。<br>编辑conf/hbase-env.sh文件指定运行HBase的java环境。<br>export JAVA_HOME=/usr/bin/java<br>export HBASE_MANAGES_ZK=true  将zookeeper设置true(true使用hbase自带的zk,false使用自己安装的zk)<br>修改配置hbase-site.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>file:////root/hbase-2.2.1-Data/HbaseData<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- hbase zookeeper数据存储地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.property.dataDir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/hbase-2.2.1-Data/zkData<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!-- zookeeper集群的地址 --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">value</span>&gt;</span>47.105.153.163<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!-- zookeeper集群的端口 --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.property.clientPort<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">value</span>&gt;</span>2183<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>执行命令行 ./start-hbase.sh &gt; console.out &amp;<br>单机下这就已经就可以启动了。</p>
-</blockquote>
-<ul>
-<li>问题1<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OpenJDK 64-Bit<span class="built_in"> Server </span>VM warning: <span class="keyword">If</span> the number of processors is expected <span class="keyword">to</span> increase <span class="keyword">from</span> one, then you should configure the number of parallel GC threads appropriately using -XX:<span class="attribute">ParallelGCThreads</span>=N</span><br><span class="line">可能因为服务器内存不足。</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>下面是介绍集群环境下的hbase的环境的安装。<br>conf/hbase-site.xml指定使用HDFS的/hbase目录作为根目录。HDFS的端口9000，数据只保留一个副本。<br>hbase shell是hbase的命令行脚本</p>
-</blockquote>
-<h2 id="hbase原理"><a href="#hbase原理" class="headerlink" title="hbase原理"></a>hbase原理</h2><ul>
-<li><p>hbase实时查询</p>
-<blockquote>
-<p>可以认为是从内存中查询的，HBase的机制就是将数据先写入内存中，当数据量到达一定的量（128m）,在写入磁盘。，在内存中，是不进行数据的更新或者合并操作，只增加数据，使得用户写操作进入内存就可以立即返回。保证hbase的I/O的高性能。</p>
-</blockquote>
-</li>
-<li><p>hbase合并文件</p>
-<blockquote>
-<p>Compact操作。当hbase中每当memstore数据flush到硬盘，形成storefile,当storefile的数量达到一定程度后，需要将storefile文件compact操作。<br>compact操作：1 合并文件 2清除过期，多版本的数据 3 提高读写数据的效率<br>二种方式 minor操作。和major操作。</p>
-<pre><code>Minor 操作只用来做部分文件的合并操作以及包括 minVersion=0 并且设置 ttl 的过期版本清理，不做任何删除数据、多版本数据的清理工作。
-Major 操作是对 Region 下的 HStore 下的所有 StoreFile 执行合并操作，最终的结果是整理合并出一个文件。简述 Hbase filter 的实现原理是什么？结合实际项目经验，写出几个使用 filter 的场景HBase 为筛选数据提供了一组过滤器，通过这个过滤器可以在 HBase 中的数据的多个维度（行，列，数据版本）上进行对数据的筛选操作，也就是说过滤器最终能够筛选的数据能够细化到具体的一个存储单元格上（由行键，列名，时间戳定位）。 RowFilter、 PrefixFilter。。。hbase的filter是通过scan设置的，所以是基于scan的查询结果进行过滤.过滤器的类型很多，但是可以分为两大类——比较过滤器，专用过滤器过滤器的作用是在服务端判断数据是否满足条件，然后只将满足条件的数据返回给客户端；如在进行订单开发的时候，我们使用rowkeyfilter过滤出某个用户的所有订单 
-</code></pre></blockquote>
-</li>
-<li><p>hbase机制</p>
-<blockquote>
-<p>在 HBase 中无论是增加新行还是修改已有行，其内部流程都是相同的。 HBase 接到命令后存下变化信息，或者写入失败抛出异常。默认情况下，执行写入时会写到两个地方：预写式日志（write-ahead log，也称 HLog）和 MemStore。 HBase 的默认方式是把写入动作记录在这两个地方，以保证数据持久化。只有当这两个地方的变化信息都写入并确认后，才认为写动作完成。MemStore 是内存里的写入缓冲区， HBase 中数据在永久写入硬盘之前在这里累积。当MemStore 填满后，其中的数据会刷写到硬盘，生成一个 HFile。 HFile 是 HBase 使用的底层存储格式。 HFile 对应于列族，一个列族可以有多个 HFile，但一个 HFile 不能存储多个列族的数据。在集群的每个节点上，每个列族有一个 MemStore。大型分布式系统中硬件故障很常见， HBase 也不例外。设想一下，如果 MemStore 还没有刷写，服务器就崩溃了，内存中没有写入硬盘的数据就会丢失。 HBase 的应对办法是在写动作完成之前先写入 WAL。 HBase 集群中每台服务器维护一个 WAL 来记录发生的变化。WAL 是底层文件系统上的一个文件。直到 WAL 新记录成功写入后，写动作才被认为成功完成。这可以保证 HBase 和支撑它的文件系统满足持久性。大多数情况下， HBase 使用Hadoop 分布式文件系统（HDFS）来作为底层文件系统。如果 HBase 服务器宕机，没有从 MemStore 里刷写到 HFile 的数据将可以通过回放WAL 来恢复。你不需要手工执行。 Hbase 的内部机制中有恢复流程部分来处理。每台HBase 服务器有一个 WAL，这台服务器上的所有表（和它们的列族）共享这个 WAL。你可能想到，写入时跳过 WAL 应该会提升写性能。但我们不建议禁用 WAL，除非你愿意在出问题时丢失数据。如果你想测试一下，如下代码可以禁用 WAL： 注意：不写入 WAL 会在 RegionServer 故障时增加丢失数据的风险。关闭 WAL，出现故障时 HBase 可能无法恢复数据，没有刷写到硬盘的所有写入数据都会丢失。             </p>
-</blockquote>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://jack-zdl.github.io/2019/09/22/一周一个中间件-hbase/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/09/29/一周一个中间件-redis/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一周一个中间件-redis
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/09/19/一周一个中间件-ES搜索引擎/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">一周一个中间件-ES搜索引擎</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识准备"><span class="toc-number">3.</span> <span class="toc-text">知识准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">4.</span> <span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">5.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hbase原理"><span class="toc-number">6.</span> <span class="toc-text">hbase原理</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-    <section id="comments">
-      <div id="disqus_thread"></div>
-        <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'jack-zdl'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </section>
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
-<script src="https://www.wenjunjiang.win/js/gitment.js"></script>
-<script>
-var gitment = new Gitment({
-	// id: "https://jack-zdl.github.io/2019/09/22/一周一个中间件-hbase/",
-  id: 'Sun Sep 22 2019 09:06:16 GMT+0800',
-  owner: 'jack-zdl',
-  repo: 'jack-zdl.github.io',
-  oauth: {
-    client_id: '3def4963fb5c6c79145e',
-    client_secret: '4ce0d5fabda9541b5d867e015cda8cc62e7538e8',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
+    
 
 
           </div>
@@ -520,8 +221,8 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
