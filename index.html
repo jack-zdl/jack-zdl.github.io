@@ -490,9 +490,11 @@
 <ul>
 <li>String 字符串</li>
 <li>List 数组</li>
-<li>Set </li>
-<li>ZSet </li>
-<li>hash </li>
+<li>hash 是一种键值对,存储的时候必须成对的出现。redis的key对应的value，这个value是map&lt;string,Object&gt;结构</li>
+<li>Set set数组不重复</li>
+<li>ZSet sort set 数组 有序数组</li>
+<li>HyperLogLog 布隆过滤器。</li>
+<li>GEOHash 将二维数据映射到一维数据,可以做“附近的人”业务逻辑</li>
 </ul>
 </li>
 <li><p>主观下线</p>
@@ -502,7 +504,7 @@
 <p>所谓主观下线（Subjectively Down， 简称 SDOWN）指的是单个Sentinel实例对服务器做出的下线判断，即单个sentinel认为某个服务下线（有可能是接收不到订阅，之间的网络不通等等原因）。<br>主观下线就是说如果服务器在down-after-milliseconds给定的毫秒数之内， 没有返回 Sentinel 发送的 PING 命令的回复， 或者返回一个错误， 那么 Sentinel 将这个服务器标记为主观下线（SDOWN ）。<br>sentinel会以每秒一次的频率向所有与其建立了命令连接的实例（master，从服务，其他sentinel）发ping命令，通过判断ping回复是有效回复，还是无效回复来判断实例时候在线（对该sentinel来说是“主观在线”）。<br>sentinel配置文件中的down-after-milliseconds设置了判断主观下线的时间长度，如果实例在down-after-milliseconds毫秒内，返回的都是无效回复，那么sentinel回认为该实例已（主观）下线，修改其flags状态为SRI_S_DOWN。如果多个sentinel监视一个服务，有可能存在多个sentinel的down-after-milliseconds配置不同，这个在实际生产中要注意。</p>
 </blockquote>
 <ul>
-<li>客观下线    </li>
+<li>客观下线</li>
 </ul>
 <blockquote>
 <p>客观下线（Objectively Down， 简称 ODOWN）指的是多个 Sentinel 实例在对同一个服务器做出 SDOWN 判断， 并且通过 SENTINEL is-master-down-by-addr 命令互相交流之后， 得出的服务器下线判断，然后开启failover。<br>客观下线就是说只有在足够数量的 Sentinel 都将一个服务器标记为主观下线之后， 服务器才会被标记为客观下线（ODOWN）。<br>只有当master被认定为客观下线时，才会发生故障迁移。<br>当sentinel监视的某个服务主观下线后，sentinel会询问其它监视该服务的sentinel，看它们是否也认为该服务主观下线，接收到足够数量（这个值可以配置）的sentinel判断为主观下线，既任务该服务客观下线，并对其做故障转移操作。<br>sentinel通过发送 SENTINEL is-master-down-by-addr ip port current_epoch runid，（ip：主观下线的服务id，port：主观下线的服务端口，current_epoch：sentinel的纪元，runid：*表示检测服务下线状态，如果是sentinel 运行id，表示用来选举领头sentinel）来询问其它sentinel是否同意服务下线。<br>一个sentinel接收另一个sentinel发来的is-master-down-by-addr后，提取参数，根据ip和端口，检测该服务时候在该sentinel主观下线，并且回复is-master-down-by-addr，回复包含三个参数：down_state（1表示已下线，0表示未下线），leader_runid（领头sentinal id），leader_epoch（领头sentinel纪元）。<br>sentinel接收到回复后，根据配置设置的下线最小数量，达到这个值，既认为该服务客观下线。</p>

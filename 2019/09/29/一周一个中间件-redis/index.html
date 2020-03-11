@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://jack-zdl.github.io">
   <title>一周一个中间件-redis | Jack-zdl&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 redis作为内存数据库，具有高速读取效率。因为单线程原因。避免多线程之间的切换时间。读取速率快。  基础知识 redis数据结构  String 字符串 List 数组 Set  ZSet  hash    主观下线    所谓主观下线（Subjectively Down， 简称 SDOWN）指的是单个Sentinel实例对服务器做出的下线判断，即单个sentinel认为某个服务下线（有可">
+  <meta name="description" content="前言 redis作为内存数据库，具有高速读取效率。因为单线程原因。避免多线程之间的切换时间。读取速率快。  基础知识 redis数据结构  String 字符串 List 数组 hash 是一种键值对,存储的时候必须成对的出现。redis的key对应的value，这个value是map&amp;lt;string,Object&amp;gt;结构 Set set数组不重复 ZSet sort set 数组 有序数">
 <meta name="keywords" content="中间件,数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一周一个中间件-redis">
 <meta property="og:url" content="https://jack-zdl.github.io/2019/09/29/一周一个中间件-redis/index.html">
 <meta property="og:site_name" content="Jack-zdl&#39;s Blog">
-<meta property="og:description" content="前言 redis作为内存数据库，具有高速读取效率。因为单线程原因。避免多线程之间的切换时间。读取速率快。  基础知识 redis数据结构  String 字符串 List 数组 Set  ZSet  hash    主观下线    所谓主观下线（Subjectively Down， 简称 SDOWN）指的是单个Sentinel实例对服务器做出的下线判断，即单个sentinel认为某个服务下线（有可">
-<meta property="og:updated_time" content="2019-11-18T00:41:49.863Z">
+<meta property="og:description" content="前言 redis作为内存数据库，具有高速读取效率。因为单线程原因。避免多线程之间的切换时间。读取速率快。  基础知识 redis数据结构  String 字符串 List 数组 hash 是一种键值对,存储的时候必须成对的出现。redis的key对应的value，这个value是map&amp;lt;string,Object&amp;gt;结构 Set set数组不重复 ZSet sort set 数组 有序数">
+<meta property="og:updated_time" content="2020-03-11T13:38:45.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一周一个中间件-redis">
-<meta name="twitter:description" content="前言 redis作为内存数据库，具有高速读取效率。因为单线程原因。避免多线程之间的切换时间。读取速率快。  基础知识 redis数据结构  String 字符串 List 数组 Set  ZSet  hash    主观下线    所谓主观下线（Subjectively Down， 简称 SDOWN）指的是单个Sentinel实例对服务器做出的下线判断，即单个sentinel认为某个服务下线（有可">
+<meta name="twitter:description" content="前言 redis作为内存数据库，具有高速读取效率。因为单线程原因。避免多线程之间的切换时间。读取速率快。  基础知识 redis数据结构  String 字符串 List 数组 hash 是一种键值对,存储的时候必须成对的出现。redis的key对应的value，这个value是map&amp;lt;string,Object&amp;gt;结构 Set set数组不重复 ZSet sort set 数组 有序数">
   
     <link rel="alternative" href="/atom.xml" title="Jack-zdl&#39;s Blog" type="application/atom+xml">
   
@@ -213,9 +213,11 @@
 <ul>
 <li>String 字符串</li>
 <li>List 数组</li>
-<li>Set </li>
-<li>ZSet </li>
-<li>hash </li>
+<li>hash 是一种键值对,存储的时候必须成对的出现。redis的key对应的value，这个value是map&lt;string,Object&gt;结构</li>
+<li>Set set数组不重复</li>
+<li>ZSet sort set 数组 有序数组</li>
+<li>HyperLogLog 布隆过滤器。</li>
+<li>GEOHash 将二维数据映射到一维数据,可以做“附近的人”业务逻辑</li>
 </ul>
 </li>
 <li><p>主观下线</p>
@@ -225,7 +227,7 @@
 <p>所谓主观下线（Subjectively Down， 简称 SDOWN）指的是单个Sentinel实例对服务器做出的下线判断，即单个sentinel认为某个服务下线（有可能是接收不到订阅，之间的网络不通等等原因）。<br>主观下线就是说如果服务器在down-after-milliseconds给定的毫秒数之内， 没有返回 Sentinel 发送的 PING 命令的回复， 或者返回一个错误， 那么 Sentinel 将这个服务器标记为主观下线（SDOWN ）。<br>sentinel会以每秒一次的频率向所有与其建立了命令连接的实例（master，从服务，其他sentinel）发ping命令，通过判断ping回复是有效回复，还是无效回复来判断实例时候在线（对该sentinel来说是“主观在线”）。<br>sentinel配置文件中的down-after-milliseconds设置了判断主观下线的时间长度，如果实例在down-after-milliseconds毫秒内，返回的都是无效回复，那么sentinel回认为该实例已（主观）下线，修改其flags状态为SRI_S_DOWN。如果多个sentinel监视一个服务，有可能存在多个sentinel的down-after-milliseconds配置不同，这个在实际生产中要注意。</p>
 </blockquote>
 <ul>
-<li>客观下线    </li>
+<li>客观下线</li>
 </ul>
 <blockquote>
 <p>客观下线（Objectively Down， 简称 ODOWN）指的是多个 Sentinel 实例在对同一个服务器做出 SDOWN 判断， 并且通过 SENTINEL is-master-down-by-addr 命令互相交流之后， 得出的服务器下线判断，然后开启failover。<br>客观下线就是说只有在足够数量的 Sentinel 都将一个服务器标记为主观下线之后， 服务器才会被标记为客观下线（ODOWN）。<br>只有当master被认定为客观下线时，才会发生故障迁移。<br>当sentinel监视的某个服务主观下线后，sentinel会询问其它监视该服务的sentinel，看它们是否也认为该服务主观下线，接收到足够数量（这个值可以配置）的sentinel判断为主观下线，既任务该服务客观下线，并对其做故障转移操作。<br>sentinel通过发送 SENTINEL is-master-down-by-addr ip port current_epoch runid，（ip：主观下线的服务id，port：主观下线的服务端口，current_epoch：sentinel的纪元，runid：*表示检测服务下线状态，如果是sentinel 运行id，表示用来选举领头sentinel）来询问其它sentinel是否同意服务下线。<br>一个sentinel接收另一个sentinel发来的is-master-down-by-addr后，提取参数，根据ip和端口，检测该服务时候在该sentinel主观下线，并且回复is-master-down-by-addr，回复包含三个参数：down_state（1表示已下线，0表示未下线），leader_runid（领头sentinal id），leader_epoch（领头sentinel纪元）。<br>sentinel接收到回复后，根据配置设置的下线最小数量，达到这个值，既认为该服务客观下线。</p>
@@ -267,12 +269,12 @@
 </blockquote>
 <ul>
 <li>每个Sentinel以每秒钟一次的频率向它所知的Master，Slave以及其他 Sentinel 实例发送一个PING命令。</li>
-<li>如果一个实例（instance）距离最后一次有效回复PING命令的时间超过 own-after-milliseconds 选项所指定的值，则这个实例会被Sentinel标记为主观下线。 </li>
-<li>如果一个Master被标记为主观下线，则正在监视这个Master的所有 Sentinel 要以每秒一次的频率确认Master的确进入了主观下线状态。 </li>
+<li>如果一个实例（instance）距离最后一次有效回复PING命令的时间超过 own-after-milliseconds 选项所指定的值，则这个实例会被Sentinel标记为主观下线。</li>
+<li>如果一个Master被标记为主观下线，则正在监视这个Master的所有 Sentinel 要以每秒一次的频率确认Master的确进入了主观下线状态。</li>
 <li>当有足够数量的Sentinel（大于等于配置文件指定的值）在指定的时间范围内确认Master的确进入了主观下线状态，则Master会被标记为客观下线。</li>
 <li>在一般情况下，每个Sentinel 会以每10秒一次的频率向它已知的所有Master，Slave发送 INFO 命令。</li>
-<li>当Master被Sentinel标记为客观下线时，Sentinel 向下线的 Master 的所有Slave发送 INFO命令的频率会从10秒一次改为每秒一次。 </li>
-<li>若没有足够数量的Sentinel同意Master已经下线，Master的客观下线状态就会被移除。 若 Master重新向Sentinel 的PING命令返回有效回复，Master的主观下线状态就会被移除。    </li>
+<li>当Master被Sentinel标记为客观下线时，Sentinel 向下线的 Master 的所有Slave发送 INFO命令的频率会从10秒一次改为每秒一次。</li>
+<li>若没有足够数量的Sentinel同意Master已经下线，Master的客观下线状态就会被移除。 若 Master重新向Sentinel 的PING命令返回有效回复，Master的主观下线状态就会被移除。</li>
 </ul>
 <blockquote>
 <p>sentinel内部3个定时任务</p>
@@ -327,7 +329,7 @@
 
 没有ASKING的请求和正常请求一样被MOVED，这保证客户端node映射关系出错的情况下不会发生写错；
 </code></pre><blockquote>
-<p>总结<br>redis数据同步: </p>
+<p>总结<br>redis数据同步:</p>
 </blockquote>
 <ol>
 <li>当一个从数据库启动时，会向主数据库发送sync命令，</li>
@@ -394,7 +396,7 @@
 </blockquote>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4combPipelineTrans</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    jedis = <span class="keyword">new</span> Jedis(<span class="string">"localhost"</span>); </span><br><span class="line">    <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">    <span class="comment">// 开启Redis管道,开启事务</span></span><br><span class="line">    Pipeline pipeline = jedis.pipelined();</span><br><span class="line">    pipeline.multi();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">        pipeline.set(<span class="string">""</span> + i, <span class="string">""</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="comment">// 执行Redis管道事务</span></span><br><span class="line">    pipeline.exec();</span><br><span class="line">    List&lt;Object&gt; results = pipeline.syncAndReturnAll();</span><br><span class="line">    <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">    <span class="comment">// 关闭Redis事务</span></span><br><span class="line">    jedis.disconnect();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4combPipelineTrans</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    jedis = <span class="keyword">new</span> Jedis(<span class="string">"localhost"</span>);</span><br><span class="line">    <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">    <span class="comment">// 开启Redis管道,开启事务</span></span><br><span class="line">    Pipeline pipeline = jedis.pipelined();</span><br><span class="line">    pipeline.multi();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">        pipeline.set(<span class="string">""</span> + i, <span class="string">""</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="comment">// 执行Redis管道事务</span></span><br><span class="line">    pipeline.exec();</span><br><span class="line">    List&lt;Object&gt; results = pipeline.syncAndReturnAll();</span><br><span class="line">    <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">    <span class="comment">// 关闭Redis事务</span></span><br><span class="line">    jedis.disconnect();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Redisson<blockquote>
 <p>Redisson内部提供一个监控锁的看门狗，每十秒检查一下，它的作用是在Redisson实例被关闭前，不断延长锁的有效期，默认情况下，看门狗的检查锁的超时时间是30秒，也可以通过Config.lockWatchdog.timeout来自定义设置。默认时间加锁时间是30秒，当任务执行到30-10=20秒，就会进行一次续期。把锁重置到30秒。服务器宕机后，定时任务跑步了，30秒后自动解开了。</p>
@@ -407,7 +409,7 @@
 <blockquote>
 <p>每次加锁加锁次数加1，每次减锁对锁进行减1，当发现加锁次数位0时，客户端释放锁成功。这就是分布式锁开源Redisson框架的实现原理。<br>基于netty实现，采用非阻塞IO，支持异步请求，支持连接池。支持pipelining, LUA Scripting,Redis Sentinel,Redis Cluster.Redisson建议LUA Scripting代替事务。支持读写分离，支持读写负载均衡。在主从复制，和Redis Cluster架构都可以使用。</p>
 </blockquote>
-<h2 id="阿里巴巴redis面试题"><a href="#阿里巴巴redis面试题" class="headerlink" title="阿里巴巴redis面试题"></a>阿里巴巴redis面试题</h2><p>- </p>
+<h2 id="阿里巴巴redis面试题"><a href="#阿里巴巴redis面试题" class="headerlink" title="阿里巴巴redis面试题"></a>阿里巴巴redis面试题</h2><p>-</p>
 
       
 
@@ -590,12 +592,11 @@
   
 
   
-  <div id="gitment-ctn"></div> 
+  <div id="gitment-ctn"></div>
 <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
 <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-	// id: "https://jack-zdl.github.io/2019/09/29/一周一个中间件-redis/",
   id: 'Sun Sep 29 2019 11:59:06 GMT+0800',
   owner: 'jack-zdl',
   repo: 'jack-zdl.github.io',
@@ -606,6 +607,7 @@ var gitment = new Gitment({
 })
 gitment.render('gitment-ctn')
 </script>
+
   
 
 
