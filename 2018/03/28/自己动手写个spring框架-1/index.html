@@ -451,7 +451,26 @@
 
 
   
-    
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '29fd06ce234338fe233',
+  	clientSecret: '090b271a3e6ce6fae6fc80ce4d4344671aa',
+  	repo: 'mycomments',
+  	owner: 'Ziven-n',
+  	admin: ['Ziven-n'],
+  	id: 'Wed Mar 28 2018 07:45:57 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
     
 
 
